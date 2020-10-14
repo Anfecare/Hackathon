@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Route[] = [
   {path: '', component: HomeComponent},
@@ -16,7 +17,8 @@ const routes: Route[] = [
   {path: 'form', component: FormComponent},
   {path: 'form/:id', component: FormComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'registro', component: RegistroComponent}
+  {path: 'registro', component: RegistroComponent},
+  {path: 'admin', component: AdminComponent}
 ];
 
 @NgModule({
@@ -25,7 +27,8 @@ const routes: Route[] = [
     HomeComponent,
     FormComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
