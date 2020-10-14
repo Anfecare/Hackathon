@@ -17,9 +17,7 @@ class EmpresasController extends Controller
     {
         $empresa = empresas::all();
         $ciudad = ciudades::all();
-        return json_encode([$ciudad, $empresa]);
-        return json_encode();
-
+        return json_encode(['ciudades'=>$ciudad, 'empresas'=>$empresa]);
     }
 
     /**

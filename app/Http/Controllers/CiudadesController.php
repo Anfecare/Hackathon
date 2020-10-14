@@ -17,7 +17,7 @@ class CiudadesController extends Controller
     { 
         $ciudad = ciudades::all();
         $departamento = departamentos::all();
-        return json_encode([$ciudad, $departamento]);
+        return json_encode(['ciudades'=>$ciudad, 'departamentos'=>$departamento]);
     }
 
     /**

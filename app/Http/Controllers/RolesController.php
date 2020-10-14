@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\roles;
 
 class RolesController extends Controller
 {
@@ -13,17 +14,8 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $rol = roles::all();
+        return json_encode($rol);
     }
 
     /**
@@ -34,29 +26,8 @@ class RolesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $rol = roles::create($request->all());
+        return json_encode($rol);
     }
 
     /**
@@ -68,7 +39,10 @@ class RolesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = roles::find($id);
+        $rol->rol = $request->rol;
+        $rol->update();
+        return json_encode($rol);
     }
 
     /**
@@ -79,6 +53,8 @@ class RolesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rol = roles::find($id);
+        $rol->delete();
+        return 'EXITO';
     }
 }

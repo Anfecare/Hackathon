@@ -10,4 +10,5 @@ class sucursales extends Model
     use HasFactory;
     protected $table = 'sucursales';
     protected $primarykey = 'id';
+    protected $fillable = ['id', 'nombre', 'telefono', 'direccion', 'Empresa' , 'ciudade'];
 }

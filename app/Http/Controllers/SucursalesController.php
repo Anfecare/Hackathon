@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\empresas;
+use App\Models\ciudades;
+use App\Models\sucursales;
 
 class SucursalesController extends Controller
 {
@@ -13,17 +16,10 @@ class SucursalesController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $sucursal = sucursales::all();
+        $empresa = empresas::all();
+        $ciudad = ciudades::all();
+        return json_encode(['sucursales'=>$sucursal, 'empresas'=>$empresa, 'ciudades'=>$ciudad]);
     }
 
     /**
@@ -34,29 +30,8 @@ class SucursalesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $sucursal = sucursales::create($request->all());
+        return json_encode($sucursal);
     }
 
     /**
@@ -68,7 +43,15 @@ class SucursalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sucursal = sucursales::find($id);
+        $sucursal->id = $request->id;
+        $sucursal->nombre = $request->nombre;
+        $sucursal->telefono = $request->telefono;
+        $sucursal->direccion = $request->direccion;
+        $sucursal->Empresa = $request->Empresa;
+        $sucursal->ciudade = $request->ciudade;
+        $sucursal->update();
+        return json_encode($sucursal);
     }
 
     /**
@@ -79,6 +62,8 @@ class SucursalesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sucursal = sucursales::find($id);
+        $sucursal->delete();
+        return 'EXITO';
     }
 }

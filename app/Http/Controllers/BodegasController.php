@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\tipodocumentos;
+use App\Models\bodegas;
+use App\Models\sucursales;
 
 class BodegasController extends Controller
 {
@@ -14,7 +15,9 @@ class BodegasController extends Controller
      */
     public function index()
     {
-        //
+        $bodega = bodegas::all();
+        $sucursal = sucursales::all();
+        return json_encode(['bodegas'=>$bodega, 'sucursales'=>$sucursal]);
     }
 
     /**
@@ -25,8 +28,8 @@ class BodegasController extends Controller
      */
     public function store(Request $request)
     {
-        $estudiante = estudiantes::create($request->all());
-        return json_encode($estudiante);
+        $bodega = bodegas::create($request->all());
+        return json_encode($bodega);
     }
 
     /**
@@ -38,8 +41,11 @@ class BodegasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $estudiante = estudiantes::find($id);
-       
+        $bodega = bodegas::find($id);
+        $bodega->nombre = $request->nombre;
+        $bodega->sucursal = $request->sucursal;
+        $bodega->update();
+        return json_encode($bodega);  
     }
 
     /**
@@ -50,6 +56,8 @@ class BodegasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bodega = bodegas::find($id);
+        $bodega->delete();
+        return 'EXITO';
     }
 }

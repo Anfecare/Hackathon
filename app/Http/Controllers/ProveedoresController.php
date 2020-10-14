@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\proveedores;
 
 class ProveedoresController extends Controller
 {
@@ -13,17 +14,8 @@ class ProveedoresController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $proveedor = proveedores::all();
+        return json_encode($proveedor);
     }
 
     /**
@@ -34,29 +26,8 @@ class ProveedoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $proveedor = proveedores::create($request->all());
+        return json_encode($proveedor);
     }
 
     /**
@@ -68,7 +39,13 @@ class ProveedoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $proveedor = proveedores::find($id);
+        $proveedor->id = $request->id;
+        $proveedor->nombre = $request->nombre;
+        $proveedor->telefono = $request->telefono;
+        $proveedor->direccion = $request->direccion;
+        $proveedor->update();
+        return json_encode($proveedor);
     }
 
     /**
@@ -79,6 +56,8 @@ class ProveedoresController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $proveedor = proveedores::find($id);
+        $proveedor->delete();
+        return 'EXITO';
     }
 }
