@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 
@@ -14,7 +15,8 @@ const routes: Route[] = [
   {path: 'home', component: HomeComponent},
   {path: 'form', component: FormComponent},
   {path: 'form/:id', component: FormComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const routes: Route[] = [
     AppComponent,
     HomeComponent,
     FormComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
