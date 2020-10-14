@@ -10,4 +10,5 @@ class generos extends Model
     use HasFactory;
     protected $table = 'generos';
     protected $primarykey = 'id';
+    protected $fillable = ['id', 'genero'];
 }

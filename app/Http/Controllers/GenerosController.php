@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\generos;
 
 class GenerosController extends Controller
 {
@@ -13,19 +14,9 @@ class GenerosController extends Controller
      */
     public function index()
     {
-        //
+        $genero = generos::all();
+        return json_encode($genero);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,29 +25,8 @@ class GenerosController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $genero = generos::create($request->all());
+        return json_encode($genero);
     }
 
     /**
@@ -68,7 +38,11 @@ class GenerosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $genero = generos::find($id);
+        $genero->id = $request->id;
+        $genero->genero = $request->genero;
+        $genero->update();
+        return json_encode($genero);
     }
 
     /**
@@ -79,6 +53,8 @@ class GenerosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $genero = generos::find($id);
+        $genero->delete();
+        return 'EXITO';
     }
 }

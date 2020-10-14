@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\clientes;
+use App\Models\tipodocumentos;
+use App\Models\generos;
 
 class ClientesController extends Controller
 {
@@ -13,17 +16,10 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $cliente = clientes::all();
+        $td = tipodocumentos::all();
+        $genero = generos::all();
+        return json_encode(['clientes'=>$cliente, 'tipodocumento'=>$td, 'generos'=>$genero]);
     }
 
     /**
@@ -34,29 +30,8 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $cliente = clientes::create($request->all());
+        return json_encode($cliente);
     }
 
     /**
@@ -68,7 +43,16 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente = clientes::find($id);
+        $cliente->id = $request->id;
+        $cliente->tipodocumento = $request->tipodocumento;
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido = $request->apellido;
+        $cliente->telefono = $request->telefono;
+        $cliente->direccion = $request->direccion;
+        $cliente->genero = $request->genero;
+        $genero->update();
+        return json_encode($genero);
     }
 
     /**
@@ -79,6 +63,8 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = clientes::find($id);
+        $cliente->delete();
+        return 'EXITO';
     }
 }

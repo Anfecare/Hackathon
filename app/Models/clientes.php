@@ -10,4 +10,5 @@ class clientes extends Model
     use HasFactory;
     protected $table = 'clientes';
     protected $primarykey = 'id';
+    protected $fillable = ['id', 'tipodocumento', 'nombre', 'apellido', 'telefono', 'direccion', 'genero'];
 }
