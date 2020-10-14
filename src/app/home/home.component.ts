@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+//
   delete(id) {
     if (confirm('Seguro que deseas eliminar esta película?')) {
       this.movieService.delete(id).subscribe(data => {
