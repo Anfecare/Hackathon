@@ -11,7 +11,7 @@ import { Movie } from './../interfaces/movie';
 export class HomeComponent implements OnInit {
 
   movies: Movie[];
-  constructor(private movieService: MoviesService,) {
+  constructor(private movieService: MoviesService, ) {
     this.getMovies();
   }
   getMovies() {

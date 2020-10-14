@@ -3,9 +3,11 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Genero</th>
-      <th scope="col">Año</th>
-      <th scope="col">Duracion</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Año de fabricación</th>
+      <th scope="col"> Descripción</th>
+      <th scope="col">Garantia</th>
+      <th scope="col"></th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -15,7 +17,9 @@
       <th>{{ movie.name }}</th>
       <td>{{ movie.genre }}</td>
       <td>{{ movie.year }}</td>
+      <td>{{ movie.description }}</td>
       <td>{{ movie.duration }}</td>
+      <td></td>
       <td>
         <a class="btn btn-primary btn-sm" routerLink="/form/{{movie.id}}">Ver/Editar</a>
         <a class="btn btn-danger btn-sm" (click)="delete(movie.id)">Eliminar</a>
