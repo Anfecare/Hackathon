@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ciudades;
+use App\Models\departamentos;
 
 class CiudadesController extends Controller
 {
@@ -12,18 +14,10 @@ class CiudadesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    { 
+        $ciudad = ciudades::all();
+        $departamento = departamentos::all();
+        return json_encode([$ciudad, $departamento]);
     }
 
     /**
@@ -34,29 +28,8 @@ class CiudadesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $ciudad = ciudades::create($request->all());
+        return json_encode($ciudad);
     }
 
     /**
@@ -68,7 +41,12 @@ class CiudadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ciudad = ciudades::find($id);
+        $ciudad->id = $request->id;
+        $ciudad->nombre = $request->nombre;
+        $ciudad->departamento = $request->departamento;
+        $ciudad->update();
+        return json_encode($ciudad);
     }
 
     /**
@@ -79,6 +57,8 @@ class CiudadesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ciudad = ciudades::find($id);
+        $ciudad->delete();
+        return 'EXITO';
     }
 }

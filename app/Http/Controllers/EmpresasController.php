@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\empresas;
+use App\Models\ciudades;
 
 class EmpresasController extends Controller
 {
@@ -13,17 +15,11 @@ class EmpresasController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $empresa = empresas::all();
+        $ciudad = ciudades::all();
+        return json_encode([$ciudad, $empresa]);
+        return json_encode();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -34,29 +30,8 @@ class EmpresasController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $empresa = empresas::create($request->all());
+        return json_encode($empresa);
     }
 
     /**
@@ -68,7 +43,14 @@ class EmpresasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $empresa = empresas::find($id);
+        $empresa->id = $request->id;
+        $empresa->nombre = $request->nombre;
+        $empresa->telefono = $request->telefono;
+        $empresa->direccion = $request->direccion;
+        $empresa->ciudad = $request->ciudad;
+        $empresa->update();
+        return json_encode($empresa);
     }
 
     /**
@@ -79,6 +61,8 @@ class EmpresasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $empresa = empresas::find($id);
+        $empresa->delete();
+        return 'ÉXITO';
     }
 }

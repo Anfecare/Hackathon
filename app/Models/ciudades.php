@@ -10,4 +10,5 @@ class ciudades extends Model
     use HasFactory;
     protected $table = "ciudades";
     protected $primaryKey = "id";
+    protected $fillable = ['id','nombre','departamento'];
 }

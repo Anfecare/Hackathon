@@ -28,5 +28,5 @@ Route::apiResource('crearproducto', 'App\Http\Controllers\ProductosController');
 Route::apiResource('proveedores', 'App\Http\Controllers\ProveedoresController');
 Route::apiResource('roles', 'App\Http\Controllers\RolesController');
 Route::apiResource('sucursales', 'App\Http\Controllers\SucursalesController');
-Route::apiResource('creartipodocumento', 'App\Http\Controllers\TipodocumentoController');
+Route::apiResource('creartipodocumento', 'App\Http\Controllers\TipodocumentosController');
 

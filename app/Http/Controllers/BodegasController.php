@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\tipodocumentos;
 
 class BodegasController extends Controller
 {
@@ -24,7 +25,8 @@ class BodegasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estudiante = estudiantes::create($request->all());
+        return json_encode($estudiante);
     }
 
     /**
@@ -36,7 +38,8 @@ class BodegasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudiante = estudiantes::find($id);
+       
     }
 
     /**

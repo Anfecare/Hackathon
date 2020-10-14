@@ -10,4 +10,5 @@ class tipodocumentos extends Model
     use HasFactory;
     protected $table = 'tipodocumentos';
     protected $primarykey = 'id';
+    protected $fillable = ['nombre'];
 }
