@@ -20,8 +20,8 @@ export class FormComponent implements OnInit {
     duration: null,
     genre: null
   };
-  id: any;//Cual
-  editing: boolean;
+  id: any;
+  editing = false;
   movies: Movie[];
   constructor(private moviesService: MoviesService, private activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
     this.id = this.activatedRoute.snapshot.params['id'];
