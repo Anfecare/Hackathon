@@ -47,7 +47,7 @@ export class FormComponent implements OnInit {
 
     if (this.editing){
       this.moviesService.put(this.movie).subscribe((data) => {
-        alert('Pelicula actualizada');
+        alert('Producto actualizado');
         console.log(data);
       }, (error) => {
         console.log(error);
@@ -55,7 +55,7 @@ export class FormComponent implements OnInit {
       });
     }else{
       this.moviesService.save(this.movie).subscribe((data) => {
-        alert('Pelicula guardada');
+        alert('Producto guardado con éxito!');
         console.log(data);
       }, (error) => {
         console.log(error);

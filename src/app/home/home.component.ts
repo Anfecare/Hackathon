@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 //
   delete(id) {
-    if (confirm('Seguro que deseas eliminar esta película?')) {
+    if (confirm('Seguro que deseas eliminar este producto?')) {
       this.movieService.delete(id).subscribe(data => {
         alert('Eliminado con Éxito');
         console.log(data);
