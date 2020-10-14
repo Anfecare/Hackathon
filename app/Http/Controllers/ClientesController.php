@@ -22,7 +22,7 @@ class ClientesController extends Controller
         return json_encode(['clientes'=>$cliente, 'tipodocumento'=>$td, 'generos'=>$genero]);
     }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
