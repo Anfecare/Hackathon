@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class generos extends Model
 {
     use HasFactory;
+    protected $table = 'generos';
+    protected $primarykey = 'id';
 }

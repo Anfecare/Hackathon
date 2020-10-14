@@ -10,4 +10,5 @@ class departamentos extends Model
     use HasFactory;
     protected $table = 'departamentos';
     protected $primarykey = 'id';
+    protected $fillable = ['id','departamento'];
 }

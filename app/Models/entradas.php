@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class entradas extends Model
 {
     use HasFactory;
+    protected $table = 'entradas';
+    protected $primarykey = 'id';
 }
