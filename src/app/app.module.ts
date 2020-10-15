@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AdminComponent } from './admin/admin.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 const routes: Route[] = [
   {path: '', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Route[] = [
   {path: 'form/:id', component: FormComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin', component: AdminComponent},
+  {path: 'usuario', component: UsuarioComponent}
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const routes: Route[] = [
     FormComponent,
     LoginComponent,
     RegistroComponent,
-    AdminComponent
+    AdminComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">Usuarios Registrados</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/admin">Agregar Usuarios<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/usuario">Lista de Usuarios</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Email</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Contraseña</th>
+      <th scope="col">Confirmar contraseña</th>
+      <th scope="col">NIT</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-light" *ngFor="let Users of users">
+      <td>{{ Users.id }}</td>
+      <th>{{ Users.name }}</th>
+      <td>{{ Users.apel }}</td>
+      <td>{{ Users.tel }}</td>
+      <td>{{ Users.email }}</td>
+      <td>{{ Users.direc }}</td>
+      <td>{{ Users.rol }}</td>
+      <td>{{ Users.pass1 }}</td>
+      <td>{{ Users.pass2 }}</td>
+      <td>{{ Users.nit }}</td>
+      <td>
+        <a class="btn btn-outline-primary btn-sm" routerLink="./../admin{{Users.id}}">Ver/Editar</a>
+        <a class="btn btn-outline-danger btn-sm" (click)="delete(Users.id)">Eliminar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
