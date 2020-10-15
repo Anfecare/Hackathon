@@ -16,13 +16,16 @@ export class RegisterComponent implements OnInit {
       name: new FormControl(''),
       surname: new FormControl(''),
       telephone: new FormControl(''),
+      role: new FormControl(''),
+      city: new FormControl(''),
+      genre: new FormControl(''),
       email: new FormControl(''),
       password: new FormControl(''),
     });
   }
 
   register(): void{
-    const{ name, surname, telephone, email, password} = this.registrar.value
-    console.log(name, surname, telephone, email, password);
+    const{ name, surname, telephone, role , city, genre, email, password} = this.registrar.value
+    console.log(name, surname, telephone, role, city, genre, email, password);
   }
 }
