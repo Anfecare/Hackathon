@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\usuarios;
+use App\Models\tipodocumentos;
+use App\Models\roles;
+use App\Models\generos;
+use App\Models\ciudades;
 
 class UsuariosController extends Controller
 {
@@ -13,17 +18,11 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $usuario = usuarios::all();
+        $rol = roles::all();
+        $genero = generos::all();
+        $ciudad = ciudades::all();
+        return json_encode(['usuarios'=>$usuario, 'roles'=>$rol, 'generos'=>$genero, 'ciudades'=>$ciudad]);
     }
 
     /**
@@ -34,29 +33,8 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $usuario = usuarios::create($request->all());
+        return json_encode($usuario);
     }
 
     /**
@@ -68,7 +46,20 @@ class UsuariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = usuarios::find($id);
+        $usuario->id = $request->id;
+        $usuario->tipodocumento = $request->tipodocumento;
+        $usuario->nombre = $request->nombre;
+        $usuario->apellido = $request->apellido;
+        $usuario->telefono = $request->telefono;
+        $usuario->direccion = $request->direccion;
+        $usuario->rol = $request->rol;
+        $usuario->genero = $request->genero;
+        $usuario->ciudad = $request->ciudad;
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+        $usuario->update();
+        return json_encode($usuario);
     }
 
     /**
@@ -79,6 +70,8 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = usuarios::find($id);
+        $usuario->delete();
+        return 'EXITO';
     }
 }

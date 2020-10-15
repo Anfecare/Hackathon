@@ -10,4 +10,5 @@ class detalle_facturas extends Model
     use HasFactory;
     protected $table = 'detalle_facturas';
     protected $primarykey = 'id';
+    protected $fillable = ['factura', 'producto', 'cantidad'];
 }

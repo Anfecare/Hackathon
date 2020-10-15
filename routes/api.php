@@ -29,4 +29,7 @@ Route::apiResource('proveedores', 'App\Http\Controllers\ProveedoresController');
 Route::apiResource('roles', 'App\Http\Controllers\RolesController');
 Route::apiResource('sucursales', 'App\Http\Controllers\SucursalesController');
 Route::apiResource('creartipodocumento', 'App\Http\Controllers\TipodocumentosController');
+Route::apiResource('nuevafactura', 'App\Http\Controllers\NuevafacturaController');
+Route::apiResource('crearusuarios', 'App\Http\Controllers\UsuariosController');
+Route::apiResource('iniciarsesion', 'App\Http\Controllers\IniciosesionController');
 
