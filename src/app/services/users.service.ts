@@ -9,17 +9,17 @@ export class UsersService {
   API_ENDPOINT = 'http://localhost:8000/api';
   constructor(private httpClient: HttpClient) { }
   get() {
-    return this.httpClient.get(this.API_ENDPOINT + '/usuario');
+    return this.httpClient.get(this.API_ENDPOINT + '/crearusuarios');
   }
   save(users: Users) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.httpClient.post( this.API_ENDPOINT + '/usuario', users, {headers});
+    return this.httpClient.post( this.API_ENDPOINT + '/crearusuarios', users, {headers});
   }
   put(users) {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.httpClient.put( this.API_ENDPOINT + '/users/' + users.id, users, {headers});
+    return this.httpClient.put( this.API_ENDPOINT + '/crearusuarios/' + users.id, users, {headers});
   }
   delete(id) {
-    return this.httpClient.delete(this.API_ENDPOINT + '/users/' + id);
+    return this.httpClient.delete(this.API_ENDPOINT + '/crearusuarios/' + id);
   }
 }

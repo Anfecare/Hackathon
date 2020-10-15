@@ -1,3 +1,4 @@
+<body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand">Administrador</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,21 +32,35 @@
       <label for="inputPassword4">Apellidos</label>
       <input type="text" class="form-control" id="inputPassword4" placeholder="Ingrese los apellidos" required>
     </div>
+    <div class="form-group col-md-6">
+      <label for="inputState">T.D</label>
+      <select id="inputState" class="form-control" required>
+        <option selected>Tipo de documento...</option>
+        <option>cédula de ciudadania</option>
+        <option>Tarjeta de Identidad</option>
+        <option>Resgistro Civil</option>
+        <option>Cédula extranjera</option>
+      </select>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">N° Documento</label>
+      <input type="number" class="form-control bg-light" id="inputPassword4" placeholder="Ingrese N° de documento" required>
+    </div>
   <div class="form-group col-md-6">
     <label for="inputPassword4">Teléfono</label>
-    <input type="number" class="form-control" id="inputPassword4" placeholder="Ingrese N° de teléfono" required>
+    <input type="number" class="form-control bg-light" id="inputPassword4" placeholder="Ingrese N° de teléfono" required>
   </div>
   <div class="form-group col-md-6">
     <label for="inputEmail4">Email</label>
-    <input type="email" class="form-control bg-light" id="inputEmail4" placeholder="Ingrese el correo electrónico" required>
+    <input type="email" class="form-control" id="inputEmail4" placeholder="Ingrese el correo electrónico" required>
   </div>
   <div class="form-group col-md-6">
     <label for="inputAddress">Dirección</label>
-    <input type="text" class="form-control bg-light" id="inputEmail4" placeholder="Ingrese dirección" required>
+    <input type="text" class="form-control" id="inputEmail4" placeholder="Ingrese dirección" required>
   </div>
   <div class="form-group col-md-6">
     <label for="inputState">Rol</label>
-    <select id="inputState" class="form-control" required>
+    <select id="inputState" class="form-control bg-light" required>
       <option selected>Elegir Rol...</option>
       <option>Administrador</option>
       <option>Cajero</option>
@@ -55,18 +70,15 @@
   </div>
   <div class="form-group col-md-6">
     <label for="inputPassword4">Contraseña</label>
-    <input type="password" class="form-control" id="inputEmail4" placeholder="Ingrese la contraseña" required>
-  </div>
-  <div class="form-group col-md-6">
-    <label for="inputPassword4">Confirmar Contraseña</label>
-    <input type="password" class="form-control bg-light" id="inputEmail4" placeholder="Confirme la contraseña" required>
+    <input type="password" class="form-control bg-light" id="inputEmail4" placeholder="Ingrese la contraseña" required>
   </div>
   <div class="form-group col-md-6">
     <label for="inputAddress">NIT</label>
-    <input type="number" class="form-control bg-light" id="inputAddress" placeholder="Digite NIT de la empresa" required>
+    <input type="number" class="form-control" id="inputAddress" placeholder="Digite NIT de la empresa" required>
   </div>
-  <button style="font-size: 25px;" class="btn btn-outline-dark col-md-6" type="submit" value="Enviar">Registrar</button>
+  <button style="font-size: 25px;" class="btn btn-outline-dark col-md-12" type="submit" value="Enviar">Registrar</button>
 </div>
 </form>
 </div>
 </div>
+</body>
