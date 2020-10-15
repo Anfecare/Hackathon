@@ -1,24 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:4200/login">Siigo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:4200/login">Iniciar sesión<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:4200/register">Registrarse</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+
 <div class="card" style="width: 23rem; height: 30 rem;">
   <h3>Registrarse</h3>
   <div class="card-body">
-    <form class="Login" method="POST">
+    <form class="Login" [formGroup]= "registrar" (ngSubmit)="register()" >
       <div class="media">
         <div class="media-body">
         </div>
       </div>
       <div class="form-group">
         <label for="exampleInputName1">Nombre de usuario</label>
-        <input type="name" class="form-control" id="exampleInputName1" placeholder="Ingresar nombre" required>
+        <input type="name" class="form-control" id="exampleInputName1" formControlName="name" placeholder="Ingresar nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputSurname1">Apellido de usuario</label>
+        <input type="text" class="form-control" id="exampleInputSurname1" formControlName="surname" placeholder="Ingresar apellido" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputTelephone1">teléfono</label>
+        <input type="number" class="form-control" id="exampleInputTelephone1" formControlName="telephone" placeholder="Ingresar teléfono" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputTelephone1">Rol</label>
+        <option select>Escoge el rol:</option>
+        <option>Administrador</option>
+        <option>Cajero</option>
+        <option>Bodega</option>
+        <option>Proveedor</option>
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Correo Electrónico</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresar correo electronico" required>
+        <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" placeholder="Ingresar correo electronico" required>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Contraseña</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" required>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Ingresar contraseña" required>
       </div>
-      <button  type="button" class="btn btn-primary"  data-placement="top">Registrarse</button>
+      <button  type="submit" class="btn btn-primary">Registrarse</button>
       <br>
       <br>
       <a href="http://localhost:4200/login"><p>Ya tienes una cuenta?</p></a>

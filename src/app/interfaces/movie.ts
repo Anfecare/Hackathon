@@ -8,3 +8,4 @@ export interface Movie {
   created_at?: string;
   update_at?: string;
 }
+

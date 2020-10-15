@@ -1,20 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="http://localhost:4200/login">Siigo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="http://localhost:4200/login">Iniciar sesión<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:4200/register">Registrarse</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+
 <div class="card" style="width: 23rem; height: 30 rem;">
   <h3>Login</h3>
   <div class="card-body">
-    <form class="Login" method="POST">
+    <form class="Login" [formGroup]= "registros" (ngSubmit)="login()" >
       <div class="media">
         <div class="media-body">
         </div>
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Correo Electronico</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresar correo electronico " required>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresar correo electronico " formControlName="email" required>
       </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Contraseña</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" required>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" formControlName="password" required>
       </div>
-      <button (click) = "login()" class="btn btn-primary">Ingresar</button>
+      <button type="submit" class="btn btn-primary alert" role="alert">Ingresar</button>
       <br>
       <br>
       <a href="http://localhost:4200/register"><p>Olvide contraseña</p></a>
