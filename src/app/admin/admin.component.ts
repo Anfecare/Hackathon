@@ -1,5 +1,5 @@
+import { UsersService } from './../services/users.service';
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../services/users.service';
 import { HttpClient } from '@angular/common/http';
 import { Users } from './../interfaces/users';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -25,8 +25,7 @@ export class AdminComponent implements OnInit {
   id: any;
   editing = false;
   Users: Users[];
-
-  constructor(private moviesService: UsersService, private activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
+  constructor(private UsersService: UsersService, private activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
     this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
       this.editing = true;
@@ -46,7 +45,7 @@ export class AdminComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  saveMovie() {
+  saveUser() {
 
     if (this.editing){
       this.UsersService.put(this.users).subscribe((data) => {
